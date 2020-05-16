@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/DmitrijDN/nodejs-2020-private#readme",
   "dependencies": {
+    "@hapi/joi": "^17.1.1",
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
     "cors": "^2.8.5",

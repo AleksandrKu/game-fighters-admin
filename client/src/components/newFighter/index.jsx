@@ -8,6 +8,7 @@ export default function NewFighter({ onCreated }) {
     const [name, setName] = useState();
     const [power, setPower] = useState();
     const [defense, setDefense] = useState();
+    const [source, setSource] = useState();
 
     const onNameChange = (event) => {
         setName(event.target.value);
@@ -23,8 +24,12 @@ export default function NewFighter({ onCreated }) {
         setDefense(value);
     }
 
+    const onSourceChange = (event) => {
+        setSource(event.target.value);
+    }
+
     const onSubmit = async () => {
-        const data = await createFighter({ name, power });
+        const data = await createFighter({ name, power, defense, source });
         if(data && !data.error) {
             onCreated(data);
         }
@@ -33,9 +38,10 @@ export default function NewFighter({ onCreated }) {
     return (
         <div id="new-fighter">
             <div>New Fighter</div>
-            <TextField onChange={onNameChange} id="standard-basic" label="Standard" placeholder="Name"/>
-            <TextField onChange={onPowerChange} id="standard-basic" label="Standard" placeholder="Power" type="number" />
-            <TextField onChange={onDefenseChange} id="standard-basic" label="Standard" placeholder="Defense" type="number" />
+            <TextField onChange={onNameChange} id="standard-basic1" label="Standard" placeholder="Name"/>
+            <TextField onChange={onPowerChange} id="standard-basic2" label="Standard" placeholder="Power" type="number" />
+            <TextField onChange={onDefenseChange} id="standard-basic3" label="Standard" placeholder="Defense" type="number" />
+            <TextField onChange={onSourceChange} id="standard-basic4" label="Standard" placeholder="Source"/>
             <Button onClick={onSubmit} variant="contained" color="primary">Create</Button>
         </div>
     );
